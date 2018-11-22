@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ValStarter.Models;
+using ValStarter.Shared;
+
 
 namespace ValStarter.Pages
 {
@@ -13,16 +15,20 @@ namespace ValStarter.Pages
     {
 
         [BindProperty]
+      //  [TempData]
 
         public Student Student { get; set; } = new Student();
         public void OnGet()
         {
-            
 
-            Student.StudentID = HttpContext.Session.GetString("StudentID");
-            Student.FirstName = HttpContext.Session.GetString("FirstName");
-            Student.LastName = HttpContext.Session.GetString("LastName");
 
+            var response = TempData.Get<Student>("Student");
+
+
+            if (response != null)
+            {
+                Student = response;
+            }
 
         }
 
@@ -34,9 +40,7 @@ namespace ValStarter.Pages
                 // so all of the string are non null.
                 // Otherwise we would need to check for non null.
 
-                HttpContext.Session.SetString("FirstName", Student.FirstName);
-                HttpContext.Session.SetString("LastName", Student.LastName);
-                HttpContext.Session.SetString("StudentID", Student.StudentID);
+                TempData.Set("Student", Student);
 
 
                 return RedirectToPage("ConfirmStudent");

@@ -6,27 +6,26 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ValStarter.Models;
+using ValStarter.Shared;
 
 namespace ValStarter.Pages
 {
     public class ConfirmStudentModel : PageModel
     {
-        
-        public string StudentID { get; set; }
 
-        public string FirstName { get; set; }
+        public Student Student = new Student();
 
-        public string LastName { get; set; }
 
         public void OnGet()
         {
-            // this is O.K. because if there is nothing in the Session
-            // the values will just be null when they are retrieved.
+            var response = TempData.Get<Student>("Student");
+            TempData.Keep();
 
-            StudentID = HttpContext.Session.GetString("StudentID");
-            FirstName = HttpContext.Session.GetString("FirstName");
-            LastName = HttpContext.Session.GetString("LastName");
-
+            if (response != null)
+            {
+                Student = response;
+            }
+          
         }
     }
 }

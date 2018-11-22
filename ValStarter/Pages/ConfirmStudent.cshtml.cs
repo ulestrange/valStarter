@@ -20,6 +20,9 @@ namespace ValStarter.Pages
 
         public void OnGet()
         {
+            // this is O.K. because if there is nothing in the Session
+            // the values will just be null when they are retrieved.
+
             StudentID = HttpContext.Session.GetString("StudentID");
             FirstName = HttpContext.Session.GetString("FirstName");
             LastName = HttpContext.Session.GetString("LastName");

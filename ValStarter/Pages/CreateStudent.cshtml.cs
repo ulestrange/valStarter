@@ -14,9 +14,16 @@ namespace ValStarter.Pages
 
         [BindProperty]
 
-        public Student Student { get; set; }
+        public Student Student { get; set; } = new Student();
         public void OnGet()
         {
+            
+
+            Student.StudentID = HttpContext.Session.GetString("StudentID");
+            Student.FirstName = HttpContext.Session.GetString("FirstName");
+            Student.LastName = HttpContext.Session.GetString("LastName");
+
+
         }
 
         public IActionResult OnPost()

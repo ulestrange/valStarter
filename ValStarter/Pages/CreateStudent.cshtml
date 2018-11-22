@@ -5,6 +5,8 @@
 
 
 <form method="post">
+
+    <div asp-validation-summary="All"></div>
     <div>
         <label asp-for=Student.FirstName></label>
         <input asp-for=Student.FirstName>
@@ -22,3 +24,5 @@
 
     <button type="submit">Press Me</button>
 </form>
+
+

@@ -1,8 +1,18 @@
 
+a.button {
+    background-color: lightblue;
+    color: black;
+    padding: 1em 1.5em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+    a.button:hover {
+        background-color: blue;
+        color: white;
+    }
+
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
-    }
+    
 }

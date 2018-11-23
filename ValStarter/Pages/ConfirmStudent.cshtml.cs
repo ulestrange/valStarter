@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Newtonsoft.Json;
 using ValStarter.Models;
-using ValStarter.Shared;
+
 
 namespace ValStarter.Pages
 {
@@ -18,12 +19,15 @@ namespace ValStarter.Pages
 
         public void OnGet()
         {
-            var response = TempData.Get<Student>("Student");
+            var response =  TempData["Student"];
+
             TempData.Keep();
 
             if (response != null)
             {
-                Student = response;
+                Student = JsonConvert.DeserializeObject<Student>( (string) response);
+
+            
             }
           
         }

@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Newtonsoft.Json;
 using ValStarter.Models;
-using ValStarter.Shared;
+
 
 
 namespace ValStarter.Pages
@@ -22,12 +23,11 @@ namespace ValStarter.Pages
         {
 
 
-            var response = TempData.Get<Student>("Student");
-
+            var response = TempData["Student"];
 
             if (response != null)
             {
-                Student = response;
+                Student = JsonConvert.DeserializeObject<Student>((string)response);
             }
 
         }
@@ -40,8 +40,10 @@ namespace ValStarter.Pages
                 // so all of the string are non null.
                 // Otherwise we would need to check for non null.
 
-                TempData.Set("Student", Student);
 
+               // var serialisedData = JsonConvert.SerializeObject(Student);
+
+                TempData["Student"] = JsonConvert.SerializeObject(Student);
 
                 return RedirectToPage("ConfirmStudent");
 

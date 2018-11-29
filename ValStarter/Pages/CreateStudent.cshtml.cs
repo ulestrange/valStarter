@@ -28,7 +28,9 @@ namespace ValStarter.Pages
             if (value != null)
             {
                 Student = JsonConvert.DeserializeObject<Student>(value);
+                HttpContext.Session.Clear();
             }
+           
 
 
         }

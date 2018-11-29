@@ -12,16 +12,23 @@ namespace ValStarter.Pages
 {
     public class ConfirmStudentModel : PageModel
     {
-        
-        public Student Student { get; set; }
+
+        public Student Student { get; set; } 
+
+    
 
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
             var value = HttpContext.Session.GetString("student");
             if (value != null)
             {
                 Student = JsonConvert.DeserializeObject<Student>(value);
+                return Page();
+            }
+            else
+            {
+                return RedirectToPage("Error");
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -17,5 +18,10 @@ namespace ValStarter.Models
 
         [Required]
         public string LastName { get; set; } = "";
+
+        public bool[] SubjectsPicked { get; set; }  = { false, false, false, false };
+
+        [BindNever]
+        public string[] SubjectChoices { get; set; } = { "English", "Irish", "Maths", "History" };
     }
 }

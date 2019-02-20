@@ -17,5 +17,11 @@ namespace ValStarter.Models
 
         [Required]
         public string LastName { get; set; } = "";
+
+        [Required]
+        [GraduationCohort]
+        public string GraduationCohort { get; set; }
+
+
     }
 }

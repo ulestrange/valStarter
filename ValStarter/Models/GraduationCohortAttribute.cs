@@ -16,7 +16,7 @@ namespace ValStarter.Models
 
             if (student.GraduationCohort != "Autumn" && student.GraduationCohort != "Spring")
             {
-                return new ValidationResult(GetErrorMessage(ValidationConext));
+                return new ValidationResult("Must be Spring or Autumn");
             }
 
             return ValidationResult.Success;

@@ -11,6 +11,12 @@ namespace ValStarter.Pages
 {
     public class CreateStudentModel : PageModel
     {
+        private readonly StudentContext _db;
+
+        public CreateStudentModel(StudentContext db)
+        {
+            _db = db;
+        }
 
         [BindProperty]
 
@@ -26,7 +32,7 @@ namespace ValStarter.Pages
 
         }
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPostAsync()
         {
             if (ModelState.IsValid)
             {
@@ -38,6 +44,8 @@ namespace ValStarter.Pages
                 HttpContext.Session.SetString("LastName", Student.LastName);
                 HttpContext.Session.SetString("StudentID", Student.StudentID);
 
+                _db.Students.Add(Student);
+                await _db.SaveChangesAsync();
 
                 return RedirectToPage("ConfirmStudent");
 

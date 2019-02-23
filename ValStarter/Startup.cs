@@ -4,8 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ValStarter.Models;
 
 namespace ValStarter
 {
@@ -22,6 +24,9 @@ namespace ValStarter
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSession(); // Needed to save data to the session.
+
+            services.AddDbContext<StudentContext>(options =>
+                             options.UseInMemoryDatabase("name"));
 
             services.AddMvc();
         }

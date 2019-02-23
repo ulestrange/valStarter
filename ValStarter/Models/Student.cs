@@ -19,7 +19,7 @@ namespace ValStarter.Models
         public string LastName { get; set; } = "";
 
         [Required]
-        [GraduationCohort]
+        [GraduationCohort (ErrorMessage ="messing")]
         public string GraduationCohort { get; set; }
 
 

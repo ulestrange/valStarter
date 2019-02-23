@@ -16,7 +16,7 @@ namespace ValStarter.Models
 
             if (student.GraduationCohort != "Autumn" && student.GraduationCohort != "Spring")
             {
-                return new ValidationResult("Must be Spring or Autumn");
+                return new ValidationResult(GetErrorMessage());
             }
 
             return ValidationResult.Success;
@@ -25,7 +25,12 @@ namespace ValStarter.Models
         public void AddValidation(ClientModelValidationContext context)
         {
             context.Attributes.Add("data-val", "true");
-            context.Attributes.Add("data-val-graduationcohort","Must be Autumn or Spring");
+            context.Attributes.Add("data-val-graduationcohort",GetErrorMessage());
+        }
+
+        private string GetErrorMessage()
+        {
+            return $"Must be Spring or Autumn";
         }
 
     }

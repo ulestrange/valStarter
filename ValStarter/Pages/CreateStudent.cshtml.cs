@@ -32,23 +32,14 @@ namespace ValStarter.Pages
 
         }
 
+   
         public async Task<IActionResult> OnPostAsync()
         {
             if (ModelState.IsValid)
             {
-                // Note: This only works because all of the fields are required
-                // so all of the string are non null.
-                // Otherwise we would need to check for non null.
-
-                HttpContext.Session.SetString("FirstName", Student.FirstName);
-                HttpContext.Session.SetString("LastName", Student.LastName);
-                HttpContext.Session.SetString("StudentID", Student.StudentID);
-
                 _db.Students.Add(Student);
                 await _db.SaveChangesAsync();
-
-                return RedirectToPage("ConfirmStudent");
-
+                return RedirectToPage("ListStudents");
             }
             else
             {

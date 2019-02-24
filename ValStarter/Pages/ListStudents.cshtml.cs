@@ -12,8 +12,6 @@ namespace ValStarter.Pages
     public class ListStudentsModel : PageModel
     {
 
-
-
         private readonly CollegeContext _db;
 
         public ListStudentsModel(CollegeContext db)

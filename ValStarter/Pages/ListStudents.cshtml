@@ -14,18 +14,20 @@
     <tbody>
         @foreach (var student in Model.Students)
         {
-        <tr>
-            <td>@student.StudentID</td>
-            <td>@student.FirstName</td>
-            <td>@student.LastName</td>
-            <td>
-                @*<a asp-page="./Edit" asp-route-id="@contact.Id">edit</a>
-                <button type="submit" asp-page-handler="delete"
-                        asp-route-id="@contact.Id">
-                    delete
-                </button>*@
-            </td>
-        </tr>
+            // list out each of the properties.
+            <tr>
+                <td>@student.StudentID</td>
+                <td>@student.FirstName</td>
+                <td>@student.LastName</td>
+            </tr>
         }
     </tbody>
 </table>
+
+@*<td>
+    @a asp-page="./Edit" asp-route-id="@contact.Id">edit</a>
+        <button type="submit" asp-page-handler="delete"
+                asp-route-id="@contact.Id">
+            delete
+        </button>
+</td>*@

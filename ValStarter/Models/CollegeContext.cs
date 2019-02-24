@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace ValStarter.Models
 {
-    public class StudentContext : DbContext
+    public class CollegeContext : DbContext
     {
         
-            public StudentContext(DbContextOptions<StudentContext> options)
+            public CollegeContext(DbContextOptions<CollegeContext> options)
                 : base(options)
             { }
 

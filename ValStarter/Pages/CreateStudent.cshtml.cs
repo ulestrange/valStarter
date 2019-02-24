@@ -11,9 +11,9 @@ namespace ValStarter.Pages
 {
     public class CreateStudentModel : PageModel
     {
-        private readonly StudentContext _db;
+        private readonly CollegeContext _db;
 
-        public CreateStudentModel(StudentContext db)
+        public CreateStudentModel(CollegeContext db)
         {
             _db = db;
         }

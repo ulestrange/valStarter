@@ -1,0 +1,23 @@
+﻿@page "{message?}"
+@model ValStarter.Pages.RouteFunSecondModel
+@{
+}
+
+
+@if (@RouteData.Values["message"] == null)
+{
+    <p> No route</p>
+}
+else
+{
+    @RouteData.Values["message"]
+}
+
+
+<h2> Second way of doing it</h2>
+
+@*@Model.Mess*@
+
+<h2> Third way of doing it</h2>
+
+@Model.Message;

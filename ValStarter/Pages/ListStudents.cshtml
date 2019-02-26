@@ -16,12 +16,14 @@
         @foreach (var student in Model.Students)
         {
             // list out each of the properties.
-            <tr>
-                <td>@student.StudentID</td>
-                <td>@student.FirstName</td>
-                <td>@student.LastName</td>
-                <td> <a asp-page="StudentDetails" asp-route-id="@student.StudentID">Details</a> </td>
-            </tr>
+        <tr>
+            <td>@student.StudentID</td>
+            <td>@student.FirstName</td>
+            <td>@student.LastName</td>
+
+
+            <td> <a asp-page="StudentDetails" asp-route-id="@student.StudentID">Details</a> </td>
+        </tr>
         }
     </tbody>
 </table>

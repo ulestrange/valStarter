@@ -1,4 +1,4 @@
-﻿@page  "{id?}"
+﻿@page  "{id}"
 @model StudentDetailsModel
 @{
 }
@@ -12,9 +12,9 @@
 </table>
 
 <ul>
-    <li>
+    @*<li>
         <a asp-page="StudentDetails" asp-route-id=@Model.Student.StudentID>Details</a>
-    </li>
+    </li>*@
 </ul>
 <form method="post">
     <input type="hidden" asp-for=Student.StudentID>

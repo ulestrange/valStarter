@@ -9,12 +9,11 @@ using ValStarter.Models;
 
 namespace ValStarter.Pages
 {
-    public class StudentDetailsModel : PageModel
+    public class EditStudentDetailsModel : PageModel
     {
-
         private readonly CollegeContext _db;
 
-        public StudentDetailsModel(CollegeContext db)
+        public EditStudentDetailsModel(CollegeContext db)
         {
             _db = db;
         }
@@ -35,16 +34,25 @@ namespace ValStarter.Pages
 
         public async Task<IActionResult> OnPostAsync()
         {
-
-            var student = await _db.Students.FindAsync(Student.StudentID);
-
-            if (student != null)
+            if (!ModelState.IsValid)
             {
-                _db.Students.Remove(student);
-                await _db.SaveChangesAsync();
+                return Page();
             }
 
-            return RedirectToPage("ListStudents");
+            _db.Attach(Student).State = EntityState.Modified;
+
+            try
+            {
+                await _db.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                throw new Exception($"Student {Student.StudentID} not found!");
+            }
+
+            return RedirectToPage("/ListStudents");
         }
+
+
     }
 }

@@ -3,6 +3,12 @@
 @{
 }
 
+<h4>@Model.Message</h4>
+
+<h4>@Model.TempData.Peek("TempDataProperty-Message").ToString();</h4>
+
+<h4>@Model.Message2</h4>
+
 <table class="table">
     <thead>
         <tr>
@@ -28,10 +34,3 @@
     </tbody>
 </table>
 
-@*<td>
-    @a asp-page="./Edit" asp-route-id="@contact.Id">edit</a>
-        <button type="submit" asp-page-handler="delete"
-                asp-route-id="@contact.Id">
-            delete
-        </button>
-</td>*@

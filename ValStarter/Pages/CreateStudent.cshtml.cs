@@ -18,6 +18,9 @@ namespace ValStarter.Pages
             _db = db;
         }
 
+        [TempData]
+        public string Message { get; set; }
+
         [BindProperty]
 
         public Student Student { get; set; } = new Student();
@@ -39,7 +42,9 @@ namespace ValStarter.Pages
             {
                 _db.Students.Add(Student);
                 await _db.SaveChangesAsync();
+                Message = $"Student {Student.StudentID} has been added";
                 return RedirectToPage("ListStudents");
+               
             }
             else
             {

@@ -14,6 +14,11 @@ namespace ValStarter.Pages
 
         private readonly CollegeContext _db;
 
+        [TempData]
+        public string Message { get; set; }
+
+        public string Message2;
+
         public ListStudentsModel(CollegeContext db)
         {
             _db = db;
@@ -23,6 +28,8 @@ namespace ValStarter.Pages
 
         public async Task OnGetAsync()
         {
+
+           
             Students = await _db.Students.AsNoTracking().ToListAsync();
         }
     }

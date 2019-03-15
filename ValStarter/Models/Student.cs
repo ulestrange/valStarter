@@ -18,9 +18,16 @@ namespace ValStarter.Models
         [Required]
         public string LastName { get; set; } = "";
 
-        [Required]
+
         [GraduationCohort (ErrorMessage ="messing")]
         public string GraduationCohort { get; set; }
+
+
+        [Required]
+        [DataType (DataType.Date)]
+        [ApplicaitonDate]
+
+        public DateTime? ApplicationDate { get; set; }
 
 
     }

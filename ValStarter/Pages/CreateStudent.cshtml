@@ -21,7 +21,22 @@
         <label asp-for=Student.StudentID></label>
         <input asp-for=Student.StudentID>
     </div>
+    <fieldset>
+        <legend> What subjects?</legend>
 
+        <div>
+            <input asp-for=Student.TakesSpanish>
+            <label asp-for=Student.TakesSpanish></label>
+        </div>
+        <div>
+            <input asp-for=Student.TakesFrench>
+            <label asp-for=Student.TakesFrench></label>
+        </div>
+        <div>
+            <input asp-for=Student.TakesGerman>
+            <label asp-for=Student.TakesGerman></label>
+        </div>
+    </fieldset>
     <button type="submit">Press Me</button>
 </form>
 

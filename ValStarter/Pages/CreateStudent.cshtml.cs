@@ -28,11 +28,6 @@ namespace ValStarter.Pages
         {
             
 
-            Student.StudentID = HttpContext.Session.GetString("StudentID");
-            Student.FirstName = HttpContext.Session.GetString("FirstName");
-            Student.LastName = HttpContext.Session.GetString("LastName");
-
-
         }
 
    

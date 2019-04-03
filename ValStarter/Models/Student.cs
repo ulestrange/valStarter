@@ -17,5 +17,14 @@ namespace ValStarter.Models
 
         [Required]
         public string LastName { get; set; } = "";
+
+        [Display (Name ="French")]
+        public bool TakesFrench { get; set; }
+
+        [Display(Name = "Spanish")]
+        public bool TakesSpanish { get; set; }
+
+        [Display(Name = "German")]
+        public bool TakesGerman { get; set; }
     }
 }

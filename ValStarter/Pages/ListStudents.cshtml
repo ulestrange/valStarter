@@ -13,6 +13,10 @@
             <th>ID</th>
             <th>First Name</th>
             <th>Last Name</th>
+
+            <th>French</th>
+            <th>German</th>
+            <th>Spanish</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -20,15 +24,33 @@
         @foreach (var student in Model.Students)
         {
             // list out each of the properties.
-        <tr>
-            <td>@student.StudentID</td>
-            <td>@student.FirstName</td>
-            <td>@student.LastName</td>
+            <tr>
+                <td>@student.StudentID</td>
+                <td>@student.FirstName</td>
+                <td>@student.LastName</td>
 
+                <td>
+                    @if (student.TakesFrench)
+                    {
+                        <text> Yes </text>
+                    }
+                </td>
+                <td>
+                    @if (student.TakesGerman)
+                    {
+                        <text> Yes </text>
+                    }
+                            </td>
+                <td>
+                    @if (student.TakesSpanish)
+                    {
+                        <text> Yes </text>
+                    }
+                            </td>
 
-            <td> <a asp-page="StudentDetails" asp-route-id="@student.StudentID">Details</a> </td>
-        </tr>
+                <td> <a asp-page="StudentDetails" asp-route-id="@student.StudentID">Details</a> </td>
+            </tr>
         }
-    </tbody>
-</table>
+            </tbody>
+        </table>
 

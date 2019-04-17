@@ -25,8 +25,9 @@ namespace ValStarter
         {
             services.AddSession(); // Needed to save data to the session.
 
+           
             services.AddDbContext<CollegeContext>(options =>
-                             options.UseInMemoryDatabase("mytempdb"));
+                             options.UseSqlServer(Configuration.GetConnectionString("ValStarterContext")));
 
             services.AddMvc();
         }

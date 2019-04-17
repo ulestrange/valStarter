@@ -16,3 +16,20 @@ a.button {
 @media screen and (max-width: 767px) {
     
 }
+
+body {
+    background-image: url('../images/istockphoto_9778925-happy-kids-friend-group-holding-hands-cartoon-illustration.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+div {
+    padding-top: 30px;
+}
+
+form{
+    background-color: antiquewhite;
+    opacity: .9;
+    max-width: 350px;
+    margin: 0 auto;
+}

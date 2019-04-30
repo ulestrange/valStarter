@@ -9,6 +9,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ValStarter.Models;
 
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+
 namespace ValStarter
 {
     public class Startup

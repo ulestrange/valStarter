@@ -10,7 +10,7 @@ using ValStarter.Models;
 namespace ValStarter.Migrations
 {
     [DbContext(typeof(CollegeContext))]
-    [Migration("20190417180831_InitalCreate")]
+    [Migration("20190424193800_InitalCreate")]
     partial class InitalCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

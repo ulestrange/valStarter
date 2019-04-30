@@ -1,0 +1,25 @@
+﻿@page
+@model UsingAjaxModel
+@{
+}
+
+
+<select id="studentdropdown" name="studentID">
+    @foreach (var student in Model.Students)
+    {
+        <option> @student.StudentID</option>
+    }
+</select>
+
+<table>
+    <tr>
+        <td id="firstname"></td>
+        <td id="lastname"></td>
+    </tr>
+</table>
+
+
+@section Scripts
+{
+<script src="~/site.js"></script>
+    }
